@@ -27,15 +27,14 @@ This project is developed and tested using GitHub Codespaces, providing a consis
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/](https://github.com/)<your_username>/<your_repository_name>.git
-    cd <your_repository_name>
+    git clone git@github.com:camyacodes/C-data-structures-and-algorithms.git
+    cd C-data-structures-and-algorithms
     ```
-2.  **Navigate to the directory** of the specific data structure or algorithm you want to run (e.g., `cd heaps`).
-3.  **Compile the C files:**
+3.  **Compile a C file:**
     ```bash
-    gcc <source_file1>.c <source_file2>.c ... -o <executable_name>
+    gcc <source_file1>.c -o <executable_name>
     ```
-    * Replace `<source_file1>.c`, `<source_file2>.c`, etc., with the names of the C files in the directory.
+    * Replace `<source_file1>.c` with the name of the C files in the directory.
     * Replace `<executable_name>` with the desired name for your executable.
 4.  **Run the executable:**
     ```bash
