@@ -5,7 +5,7 @@ This repository contains C implementations of various data structures and algori
 ## Currently Implemented 
 
 * **Heaps:**
-    * Binary Heaps (Min-Heap and Max-Heap)
+    * Binary Heaps (Min-Heap)
 * **Tries:**
     * Standard Trie
 * **Binary Search Trees (BSTs):**
