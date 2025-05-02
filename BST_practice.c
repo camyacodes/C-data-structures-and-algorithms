@@ -41,6 +41,7 @@ void insert(BSTree *tree, int val){
     // check if empty
     if(is_empty(tree)){
         tree->root = create_node(val);
+        return;
     }
 
     BSTNode *ptr = tree->root;
@@ -66,18 +67,77 @@ void insert(BSTree *tree, int val){
     }
 }
 
+void inorder(BSTNode *root){
+    if(root == NULL){
+        return;
+    }
+
+    if(root->left != NULL){
+        inorder(root->left);
+    }
+
+    printf("%d\n", root->data);
+
+    if(root->right != NULL){
+        inorder(root->right);
+    }
+}
+
+void preorder(BSTNode *root){
+    if(root == NULL){
+        return;
+    }
+
+    printf("%d\n", root->data);
+
+    if(root->left != NULL){
+        preorder(root->left);
+    }
+
+    if(root->right != NULL){
+        preorder(root->right);
+    }
+}
+void postorder(BSTNode *root){
+    if(root == NULL){
+        return;
+    }
+
+    if(root->left != NULL){
+        postorder(root->left);
+    }
+
+    if(root->right != NULL){
+        postorder(root->right);
+    }
+
+    printf("%d\n", root->data);
+}
+
 int main() {
     // create tree
     BSTree *tree = create_tree();
 
     // insert nodes
     insert(tree, 50);
-    // insert(tree, 20);
-    // insert(tree, 30);
-    // insert(tree, 10);
-    // insert(tree, 5);
-    // insert(tree, 90);
-    // insert(tree, 100);
+    insert(tree, 20);
+    insert(tree, 30);
+    insert(tree, 10);
+    insert(tree, 5);
+    insert(tree, 90);
+    insert(tree, 100);
+
+    // In-order traversal
+    printf("In-order traversal:\n");
+    inorder(tree->root);
+
+    // pre-order traversal
+    printf("Pre-order traversal:\n");
+    preorder(tree->root);
+
+    // post-order traversal
+    printf("Post-order traversal:\n");
+    postorder(tree->root);
 
 
 
