@@ -114,6 +114,44 @@ void postorder(BSTNode *root){
     printf("%d\n", root->data);
 }
 
+BSTNode *search(BSTree *tree, int val){
+    // create tmp node and while it isnt null traverse through tree looking for val
+    BSTNode *tmp = tree->root;
+
+    while(tmp != NULL){
+        // check if tmp is val
+        if(tmp->data == val){
+            printf("%d found in tree!\n", val);
+            return tmp;
+        } else {
+            // if not determine where to go
+            if(val < tmp->data){
+                tmp = tmp->left;
+            } else {
+                tmp = tmp->right;
+            }
+        }
+    }
+
+    printf("Value not found.\n");
+    return tmp;
+}
+
+BSTNode *find_sucessor(BSTNode *root){
+    if(root == NULL || root->right == NULL){
+        return root;
+    }
+
+    BSTNode *ptr = root->right;
+
+    while(ptr->left != NULL){
+        ptr = ptr->left;
+    }
+
+    return ptr;
+}
+
+
 int main() {
     // create tree
     BSTree *tree = create_tree();
@@ -127,17 +165,27 @@ int main() {
     insert(tree, 90);
     insert(tree, 100);
 
-    // In-order traversal
-    printf("In-order traversal:\n");
-    inorder(tree->root);
+    // // In-order traversal
+    // printf("In-order traversal:\n");
+    // inorder(tree->root);
 
-    // pre-order traversal
-    printf("Pre-order traversal:\n");
-    preorder(tree->root);
+    // // pre-order traversal
+    // printf("Pre-order traversal:\n");
+    // preorder(tree->root);
 
-    // post-order traversal
-    printf("Post-order traversal:\n");
-    postorder(tree->root);
+    // // post-order traversal
+    // printf("Post-order traversal:\n");
+    // postorder(tree->root);
+
+    // search
+    BSTNode *tmp = search(tree, 90);
+    tmp = search(tree, 47);
+    tmp = search(tree, 50);
+
+    // find sucessor (node that would replace node if deleted)
+    BSTNode *next = find_sucessor(tree->root);
+    printf("Next: %d\n", next->data);
+
 
 
 
